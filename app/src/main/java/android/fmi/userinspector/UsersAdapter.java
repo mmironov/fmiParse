@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -13,9 +16,9 @@ import java.util.List;
  */
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> {
 
-    private List<User> users;
+    private List<ParseUser> users;
 
-    public UsersAdapter(List<User> users) {
+    public UsersAdapter(List<ParseUser> users) {
         this.users = users;
     }
 
@@ -37,13 +40,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 
-        final User user = users.get(i);
+        final ParseUser user = users.get(i);
 
-        viewHolder.usernameTextView.setText(user.toString());
-        viewHolder.messagesCountTextVIew.setText(String.valueOf(user.getMessageCount()));
+        viewHolder.usernameTextView.setText(user.getEmail());
+        viewHolder.messagesCountTextVIew.setText("0");
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView usernameTextView;
         TextView messagesCountTextVIew;
@@ -53,6 +56,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
 
             usernameTextView = (TextView) view.findViewById(R.id.usernameTextView);
             messagesCountTextVIew = (TextView) view.findViewById(R.id.messagesCountTextView);
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }
