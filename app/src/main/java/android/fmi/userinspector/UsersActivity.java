@@ -29,17 +29,6 @@ public class UsersActivity extends Activity {
 
         users = new ArrayList<User>();
 
-        User user1 = new User();
-        user1.setEmail("mmironov@fmi.uni-sofia.bg");
-        user1.setMessageCount(5);
-
-        User user2 = new User();
-        user2.setEmail("miroslav@fmi.uni-sofia.bg");
-        user2.setMessageCount(3);
-
-        users.add(user1);
-        users.add(user2);
-
         adapter = new UsersAdapter(users);
         usersList.setAdapter(adapter);
     }

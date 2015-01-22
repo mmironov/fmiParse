@@ -38,7 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final int id = v.getId();
 
         if (id == loginButton.getId()) {
-            startActivity(new Intent(this, UsersActivity.class));
+            
         }
 
         if (id == signUpButton.getId()) {
